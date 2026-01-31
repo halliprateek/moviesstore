@@ -18,6 +18,8 @@ class Review(models.Model):
         on_delete=models.CASCADE)
     user = models.ForeignKey(User,
         on_delete=models.CASCADE)
+    is_reported = models.BooleanField(default=False)
+    report_reason = models.TextField(blank=True, null=True)
     def __str__(self):
         return str(self.id) + ' - ' + self.movie.name
 # Create your models here.
